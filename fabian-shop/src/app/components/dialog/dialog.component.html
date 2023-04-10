@@ -1,0 +1,72 @@
+<h2 mat-dialog-title>Add your shop details!</h2>
+<br>
+<div mat-dialog-content>
+    <form [formGroup]="shopForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Bolt neve</mat-label>
+            <input formControlName="shopName" matInput placeholder="Add meg a bolt nevét">
+            <mat-icon matSuffix>local_grocery_store</mat-icon>
+            <mat-hint>pl.: Bukfenc Shop</mat-hint>
+        </mat-form-field>
+<br>
+        <mat-form-field appearance="outline">
+            <mat-label>Bolt címe</mat-label>
+            <input formControlName="shopAddress" matInput placeholder="Add meg a bolt címét">
+            <mat-icon matSuffix>place</mat-icon>
+            <mat-hint>Kakuk u. 2/b</mat-hint>
+        </mat-form-field>
+<br>
+        <mat-form-field appearance="outline">
+            <mat-label>Telefonszám</mat-label>
+            <input formControlName="shopNumber" matInput placeholder="Add meg a bolt telefonszámát">
+            <mat-icon matSuffix>phone</mat-icon>
+            <mat-hint>pl.: 06303141592</mat-hint>
+        </mat-form-field>
+<br>
+        <mat-form-field appearance="outline">
+            <mat-label>Nyitvatartás</mat-label>
+            <input formControlName="shopTimings" matInput placeholder="Add meg a bolt nyitvatartását">
+            <mat-icon matSuffix>access_time</mat-icon>
+            <mat-hint>pl.: 8:00 - 20:00</mat-hint>
+        </mat-form-field>
+<div class="container">
+<div class="card">
+    <div class="card-header">
+        Tölts fel egy képet a boltról
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Fájl kiválasztása</h5>
+        <input id="file-upload" type="file" (change)="upload($event)" accept="image/*">
+    </div>
+</div>
+</div>
+<mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>Bolt Kategóriák</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Category selection" formControlName="shopCategory">
+      <mat-chip-row *ngFor="let category of categories.value"
+                    (removed)="remove(category)"
+                    [aria-description]="'press enter to edit ' + category">
+        {{category}}
+        <button matChipRemove [attr.aria-label]="'remove ' + category">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input placeholder="Új tag..."
+             [matChipInputFor]="chipGrid"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-grid>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Bolt részletei</mat-label>
+    <textarea formControlName="shopDescription" matInput placeholder="Add meg a bolt részleteit!"> </textarea>
+</mat-form-field>
+</form>
+
+<div>
+    <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <button [disabled]="shopForm.invalid"style="margin-left: 5px;"mat-raised-button color="primary" (click)="addShop()">{{btnCurrentVal}}</button>
+    </div>
+</div>

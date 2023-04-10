@@ -1,0 +1,30 @@
+mat-form-field{
+  width:100%;
+}
+
+.example-chip-list {
+  width: 100%;
+}
+
+[type="file"] {
+  color: #000000;
+}
+
+[type="file"]::-webkit-file-upload-button {
+  background: #470b3f;
+  border: 2px solid #af259d;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+  outline: none;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  transition: all .5s ease;
+  cursor: pointer;
+}
+
+[type="file"]::-webkit-file-upload-button:hover {
+  background: #fff;
+  border: 2px solid #353333;
+  color: #000000;
+}

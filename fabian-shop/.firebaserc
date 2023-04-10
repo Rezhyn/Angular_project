@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fabianshop-c80b3": {
+      "hosting": {
+        "fabian-shop": [
+          "fabianshop-c80b3"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fabianshop-c80b3"
+  }
+}

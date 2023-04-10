@@ -1,0 +1,16 @@
+<div class="header-start-section">
+    <div class="header-section">
+        <div class="header-headline">
+            <h1 class="mat-h1">Hozzá szeretnéd adni boltod?</h1>
+            <h2 class="mat-h2">Kattints a bejelentkezés gombra</h2>
+            <div class="header-start">
+                <button style="margin-left: 10px;" mat-raised-button *ngIf="(afAuth.authState | async) === null" (click)="signIn()" color="accent">Bejelentkezés</button>
+                <button style="margin-left: 10px;" mat-raised-button *ngIf="afAuth.authState | async" (click)="signOut()" color="basic">Kijelentkezés</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="margin:40px" *ngIf="(afAuth.authState | async)">
+    <mat-card style="font-size: 20px; font-weight: 400;">Kattints a hozzáadásra!</mat-card>
+</div>
